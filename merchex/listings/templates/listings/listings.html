@@ -1,0 +1,12 @@
+{% extends 'listings/base.html' %}
+{%  block content %}
+    <h1>Listings !</h1>
+    <p>Mes Listings :</p>
+
+    <ul>
+        {% for listing in all_listings %}
+            <li>{{ listing.title|upper }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
