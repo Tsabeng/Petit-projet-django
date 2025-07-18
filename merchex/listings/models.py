@@ -2,6 +2,8 @@ from django.db import models
 from django.core.validators import MaxValueValidator,MinValueValidator
 
 class Band(models.Model):
+    def __str__(self):
+        return f'{self.name}'
     class Genre(models.TextChoices):
         HIP_HOP='HH'
         SYNTH_POP='SP'
@@ -22,11 +24,14 @@ class Band(models.Model):
     
 
 class Listing(models.Model):
+    def __str__(self):
+        return f'{self.title}'
     class Types(models.TextChoices):
         DISQUES='RECORDS'
         VETEMENTS='CLOTHING'
         AFFICHES='POSTERS'
         DIVERS='MISECELLANEOUS'
+        TICKET='TICKET'
 
     title=models.fields.CharField(max_length=100)
     description=models.fields.CharField(max_length=200)
@@ -35,6 +40,7 @@ class Listing(models.Model):
         validators=[MinValueValidator(1900),MaxValueValidator(2025)],
         null=True
     )
-    type=models.fields=choices=Types.choices,max_length=14
+    type = models.fields.CharField(choices=Types.choices,max_length=14)
+    band = models.ForeignKey(Band,null=True,blank=True, on_delete=models.SET_NULL)
 
 

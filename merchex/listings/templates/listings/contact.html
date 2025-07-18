@@ -1,5 +1,12 @@
 {% extends 'listings/base.html' %}
 {% block content %}
-    <h1> Contactez-Nous !</h1>
-    <p>Veuillez nous conctactz pour plus de detaille</p>
+    <p> Nous somme la pour vous aider .</p>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+      
+       
+
+        <input type="submit" value="Envoyer">
+    </form>
 {% endblock %}
