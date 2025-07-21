@@ -11,4 +11,8 @@
     <li>Type : {{listing.type}}</li>
     <li>Groupe : {{listing.band}}</li>
 </ul>
+<a href="{% url 'listing-change' listing.id %}">Modifier cet Annonce </a>
+<a href="{% url 'listing-delete' listing.id %}">[Suprimer]</a>
+
+<a href="{% url 'listing-list' %}">Retourner a la liste des Annonces</a>
 {% endblock %}

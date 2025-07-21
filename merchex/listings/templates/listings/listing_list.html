@@ -2,16 +2,17 @@
 
 {%  block content %}
 
-
-
-
-
+<p></p><a href="{% url 'listing-create'%}">Creer une nouvelle Annonce</a>
     <h1>Listings !</h1>
     <p>Mes Listings :</p>
 
     <ul>
         {% for listing in all_listings %}
-            <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+            <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a>
+                <a href="{% url 'listing-change' listing.id %}">[Modifier]</a>
+                <a href="{% url 'listing-delete' listing.id %}">[Suprimer]</a>
+
+            </li>
 
 
         {% endfor %}
